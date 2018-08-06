@@ -20,8 +20,8 @@
     }
   },
   "images": {
-    "large": "/drivers/ESH 316GLED Dimmer RF PF/assets/images/large.png",
-    "small": "/drivers/ESH 316GLED Dimmer RF PF/assets/images/small.png"
+    "large": "/drivers/ESH Super TR RF Termostat/assets/images/large.png",
+    "small": "/drivers/ESH Super TR RF Termostat/assets/images/small.png"
   },
   
 }
