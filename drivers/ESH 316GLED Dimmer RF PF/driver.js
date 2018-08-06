@@ -16,7 +16,7 @@
     "learnmode": {
       "image": "/drivers/ESH 316GLED Dimmer RF PF/assets/icon.svg",
       "instruction": {
-        "en": "Click on and hold dimmer wheel and pushbutton (take of covers) until green LED flashes. Wait for Homey to list device",
+        "en": "Click on and hold dimmer wheel (1) and pushbutton (2) (You need to take of covers) until green LED flashes. Wait for Homey to list device",
       }
     }
   },
