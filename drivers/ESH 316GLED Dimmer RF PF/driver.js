@@ -1,7 +1,7 @@
 {
-  "id": "dimmable_bulb",
+  "id": "ESH 316GLED Dimmer RF PF",
   "name": {
-    "en": "Dimmable Bulb",
+    "en": "ESH 316GLED Dimmer RF PF",
   },
   "class": "light",
   "capabilities": [
@@ -9,35 +9,20 @@
     "dim"
   ],
   "zigbee": {
-    "manufacturerName": "IKEA of Sweden",
-    "productId": "TRADFRI bulb E27 opal 1000lm",
+    "manufacturerName": "ELKO",
+    "productId": "ElkoDimmerZHA",
     "deviceId": 256,
-    "profileId": 260,
+    "profileId": 0104,
     "learnmode": {
-      "image": "/drivers/dimmable_bulb/assets/icon.svg",
+      "image": "/drivers/ESH 316GLED Dimmer RF PF/assets/icon.svg",
       "instruction": {
-        "en": "Turn the device on and off 6 times",
-        "nl": "Zet het apparaat 6 keer aan en uit"
+        "en": "Click on and hold dimmer wheel and pushbutton (take of covers) until green LED flashes. Wait for Homey to list device",
       }
     }
   },
   "images": {
-    "large": "/drivers/dimmable_bulb/assets/images/large.png",
-    "small": "/drivers/dimmable_bulb/assets/images/small.png"
+    "large": "/drivers/ESH 316GLED Dimmer RF PF/assets/images/large.png",
+    "small": "/drivers/ESH 316GLED Dimmer RF PF/assets/images/small.png"
   },
-  "settings": [
-    {
-      "id": "transtime",
-      "type": "number",
-      "label": {
-        "nl": "Transitie tijd in seconden",
-        "en": "Transition time in seconds"
-      },
-      "value": 1,
-      "attr": {
-        "min": 0,
-        "max": 20
-      }
-    }
-  ]
+  
 }
