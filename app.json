@@ -1,0 +1,22 @@
+{
+  "id": "com.elko",
+  "name": {
+    "en": "ELKO"
+  },
+  "description": {
+    "en": "This app adds support for your ELKO Smart Home devices"
+  },
+  "category": [
+    "Thermostats",
+    "lights"
+  ],
+  "version": "1.0.0",
+  "compatibility": ">=1.5.3",
+  "author": {
+    "name": "Pål Raymond Johansen",
+    "email": "prj_84@hotmail.com"
+  },
+  "images": {
+    "large": "./assets/images/large.jpg",
+    "small": "./assets/images/small.jpg"
+  },
