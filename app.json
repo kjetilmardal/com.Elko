@@ -47,7 +47,37 @@
                 "en": "ESH Super TR RF Termostat"
             },
             "class": "thermostat",
-            "capabilities": [ "target_temperature", "measure_temperature" ],
+            "capabilities": [ "target_temperature", "locked", "meter_power", 
+            
+            "measure_temperature.air": {
+            "type": "number",
+            "title": {
+                "en": "Air Temperature"
+            },
+            "getable": true,
+            "setable": false,
+            "units": {
+                "en": "C"
+            },
+            "min": 0,
+            "max": 50,
+            "step": 0.1
+        }, "measure_temperature.floor": {
+            "type": "number",
+            "title": {
+                "en": "Floor Temperature"
+            },
+            "getable": true,
+            "setable": false,
+            "units": {
+                "en": "C"
+            },
+            "min": 0,
+            "max": 50,
+            "step": 0.1
+        }
+          
+          
             "pair": [
                 {
                     "id": "list_devices",
