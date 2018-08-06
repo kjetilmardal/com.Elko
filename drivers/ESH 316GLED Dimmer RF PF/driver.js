@@ -2,7 +2,6 @@
   "id": "dimmable_bulb",
   "name": {
     "en": "Dimmable Bulb",
-    "nl": "Dimbare Lamp"
   },
   "class": "light",
   "capabilities": [
