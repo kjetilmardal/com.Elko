@@ -14,7 +14,7 @@
     "deviceId": 256,
     "profileId": 0104,
     "learnmode": {
-      "image": "/drivers/ESH 316GLED Dimmer RF PF/assets/icon.svg",
+      "image": "/drivers/ESH 316GLED Dimmer RF PF/assets/include.svg",
       "instruction": {
         "en": "Click on and hold dimmer wheel (1) and pushbutton (2) (You need to take of covers) until green LED flashes. Wait for Homey to list device",
       }
