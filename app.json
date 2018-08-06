@@ -20,3 +20,42 @@
     "large": "./assets/images/large.jpg",
     "small": "./assets/images/small.jpg"
   },
+
+  "drivers": [
+        {
+            "id": "ESH 316GLED Dimmer RF PF",
+            "name": {
+                "en": "ESH 316GLED Dimmer RF PF"
+            },
+            "class": "light",
+            "capabilities": [ "onoff", "dim" ],
+            "pair": [
+                {
+                    "id": "list_devices",
+                    "template": "list_devices",
+                    "navigation": {
+                        "next": "add_devices"
+                    }
+                },
+                {
+                    "id": "add_devices",
+                    "template": "add_devices"
+                  
+                  {
+            "id": "ESH Super TR RF Termostat",
+            "name": {
+                "en": "ESH Super TR RF Termostat"
+            },
+            "class": "thermostat",
+            "capabilities": [ "target_temperature", "measure_temperature" ],
+            "pair": [
+                {
+                    "id": "list_devices",
+                    "template": "list_devices",
+                    "navigation": {
+                        "next": "add_devices"
+                    }
+                },
+                {
+                    "id": "add_devices",
+                    "template": "add_devices"
