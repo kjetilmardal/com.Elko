@@ -47,7 +47,7 @@
   },
 
                   
-                  {
+           {
             "id": "ESH_Super_TR",
             "name": {"en": "ESH Super TR RF Termostat"},
             "class": "thermostat",
