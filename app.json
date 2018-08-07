@@ -23,7 +23,7 @@
 
   "drivers": [
         {
-            "id": "ESH 316GLED Dimmer RF PF",
+            "id": "ESH_316GLED",
             "name": {
                 "en": "ESH 316GLED Dimmer RF PF"
             },
@@ -42,7 +42,7 @@
                     "template": "add_devices"
                   
                   {
-            "id": "ESH Super TR RF Termostat",
+            "id": "ESH_Super_TR",
             "name": {
                 "en": "ESH Super TR RF Termostat"
             },
