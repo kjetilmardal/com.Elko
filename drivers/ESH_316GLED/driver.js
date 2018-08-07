@@ -1,5 +1,5 @@
 {
-  "id": "ESH 316GLED Dimmer RF PF",
+  "id": "ESH_316GLED",
   "name": {
     "en": "ESH 316GLED Dimmer RF PF",
   },
@@ -26,3 +26,4 @@
   },
   
 }
+\\need to find deviceid
