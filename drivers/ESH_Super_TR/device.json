@@ -2,8 +2,8 @@
 
 const ZigBeeDevice = require('homey-meshdriver').ZigBeeDevice;
 
-class ESH_316GLED extends ZigBeeDevice {
+class ESH_Super_TR extends ZigBeeDevice {
 
 }
 
-module.exports = ESH_316GLED;
+module.exports = ESH_Super_TR;
