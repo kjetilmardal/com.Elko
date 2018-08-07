@@ -24,12 +24,28 @@
   "drivers": [
         {
             "id": "ESH_316GLED",
-            "name": {
-                "en": "ESH 316GLED Dimmer RF PF"
-            },
+            "name": {"en": "ESH 316GLED Dimmer RF PF"},
             "class": "light",
-            "capabilities": [ "onoff", "dim" ],
-            "pair": [
+            "capabilities": [ "onoff", "dim"],
+            "zigbee": {
+            "manufacturerName": "Elko",
+            "productId": ["ElkoDimmerZHA"],
+            "deviceId": 257,
+            "profileId": [0104], 
+            
+            "learnmode": {
+            "image": "/drivers/ESH 316GLED Dimmer RF PF/assets/include.svg",
+            "instruction": {
+            "en": "Click on and hold dimmer wheel (1) and pushbutton (2) (You need to take of covers) until green LED flashes. Wait for Homey to list device",
+      }
+    }
+  },
+            "images": {
+            "large": "/drivers/ESH 316GLED Dimmer RF PF/assets/images/large.png",
+            "small": "/drivers/ESH 316GLED Dimmer RF PF/assets/images/small.png"
+  },
+          
+             "pair": [
                 {
                     "id": "list_devices",
                     "template": "list_devices",
@@ -43,9 +59,7 @@
                   
                   {
             "id": "ESH_Super_TR",
-            "name": {
-                "en": "ESH Super TR RF Termostat"
-            },
+            "name": {"en": "ESH Super TR RF Termostat"},
             "class": "thermostat",
             "capabilities": [ "target_temperature", "locked", "meter_power", 
             
@@ -76,8 +90,24 @@
             "max": 50,
             "step": 0.1
         }
-          
-          
+            "zigbee": {
+            "manufacturerName": "Elko",
+            "productId": ["Super TR"],
+            "deviceId": 0301,
+            "profileId": [0104],           
+            
+            "learnmode": {
+            "image": "/drivers/ESH Super TR RF Termostat/assets/include.svg",
+            "instruction": {
+            "en": "Click on and hold arrow up and M Button (1) until joining/pairing is displayed. Wait for Homey to list device",
+     }
+    }
+  },
+          "images": {
+          "large": "/drivers/ESH Super TR RF Termostat/assets/images/large.png",
+          "small": "/drivers/ESH Super TR RF Termostat/assets/images/small.png"
+  },  
+              
             "pair": [
                 {
                     "id": "list_devices",
