@@ -1,6 +1,6 @@
 'use strict';
 
-const ZigBeeLightDevice = require('homey-meshdriver').ZigBeeLightDevice;
+const ZigBeeDevice = require('homey-meshdriver').ZigBeeDevice;
 
 #suggestion for code, don't own device so not sure abouit endpoint etc. So therefore the output on console from this.printNode() is essential to get needed info.
 
