@@ -12,7 +12,7 @@
   ],
   "version": "1.0.0",
   "compatibility": ">=1.5.3",
-  "sdk": 2
+  "sdk": 2,
   '"author": {
     "name": "Pål Raymond Johansen",
     "email": "prj_84@hotmail.com"
