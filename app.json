@@ -79,7 +79,7 @@
             "min": 0,
             "max": 50,
             "step": 0.1
-        }
+        }]
             "zigbee": {
             "manufacturerName": "Elko",
             "productId": ["Super TR"],
