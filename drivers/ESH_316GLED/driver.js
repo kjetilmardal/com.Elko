@@ -11,6 +11,7 @@
   "zigbee": {
     "manufacturerName": "ELKO",
     "productId": "ElkoDimmerZHA",
+    //need to find deviceid
     "deviceId": 256,
     "profileId": 0104,
     "learnmode": {
@@ -26,4 +27,4 @@
   },
   
 }
-\\need to find deviceid
+
