@@ -64,7 +64,7 @@
             "class": "thermostat",
             "capabilities": [ "target_temperature", "locked", "meter_power", 
             
-            "measure_temperature.air":, {
+            "measure_temperature.air" {
             "type": "number",
             "title": {
                 "en": "Air Temperature"
@@ -77,7 +77,7 @@
             "min": 0,
             "max": 50,
             "step": 0.1
-        }, "measure_temperature.floor": {
+        }, "measure_temperature.floor" {
             "type": "number",
             "title": {
                 "en": "Floor Temperature"
