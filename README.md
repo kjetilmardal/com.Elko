@@ -1,5 +1,5 @@
 # com.Elko.app
-App for Elko SmartHome 
+Athom Homey App for Elko SmartHome 
 
 Plan for support:
 - ESH 316GLED RF PH - Dimmer
