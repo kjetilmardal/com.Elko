@@ -64,7 +64,7 @@
             "class": "thermostat",
             "capabilities": [ "target_temperature", "locked", "meter_power", 
             
-            "measure_temperature.air": {
+            "measure_temperature.air":, {
             "type": "number",
             "title": {
                 "en": "Air Temperature"
