@@ -5,7 +5,7 @@ const ZigBeeDevice = require('homey-meshdriver').ZigBeeDevice;
 
 const maxValue = 255;
 
-class RemoteRotatingDimmer extends ZigBeeDevice {
+class ESH_316GLED extends ZigBeeDevice {
 
 	onMeshInit() {
 		this.moving = false;
@@ -99,4 +99,4 @@ class RemoteRotatingDimmer extends ZigBeeDevice {
 	}
 }
 
-module.exports = RemoteRotatingDimmer;
+module.exports = ESH_316GLED;
