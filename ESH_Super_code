@@ -1,0 +1,50 @@
+{
+            "id": "ESH_Super_TR",
+            "name": {"en": "ESH Super TR RF Termostat"},
+            "class": "thermostat",
+            "capabilities": [ "target_temperature", "locked", "meter_power", 
+            
+            "measure_temperature.air" {
+            "type": "number",
+            "title": {
+                "en": "Air Temperature"
+            },
+            "getable": true,
+            "setable": false,
+            "units": {
+                "en": "C"
+            },
+            "min": 0,
+            "max": 50,
+            "step": 0.1
+        }, "measure_temperature.floor" {
+            "type": "number",
+            "title": {
+                "en": "Floor Temperature"
+            },
+            "getable": true,
+            "setable": false,
+            "units": {
+                "en": "C"
+            },
+            "min": 0,
+            "max": 50,
+            "step": 0.1
+        }],
+            "zigbee": {
+            "manufacturerName": "Elko",
+            "productId": ["Super TR"],
+            "deviceId": 0301,
+            "profileId": [0104],           
+            
+            "learnmode": {
+            "image": "/drivers/ESH Super TR RF Termostat/assets/include.svg",
+            "instruction": {
+            "en": "Click on and hold arrow up and M Button (1) until joining/pairing is displayed. Wait for Homey to list device",
+     }
+    }
+  },
+          "images": {
+          "large": "/drivers/ESH Super TR RF Termostat/assets/images/large.png",
+          "small": "/drivers/ESH Super TR RF Termostat/assets/images/small.png"
+   }
