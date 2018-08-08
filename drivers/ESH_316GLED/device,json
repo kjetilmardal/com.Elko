@@ -15,14 +15,14 @@ class ESH_316GLED extends ZigBeeDevice {
 		this.registerAttrReportListener('genOnOff', 'onOff', 1, 0, 1, value => {
 			this.log('onoff', value);
 			this.setCapabilityValue('onoff', value === 1);
-		}, 0);
+		}, 01);
 
 		if (this.hasCapability('dim')) this.registerCapability('dim', 'genLevelCtrl');
 
 		this.registerAttrReportListener('genLevelCtrl', 'currentLevel', 1, 300, 2, value => {
 			this.log('dim report', value);
 			this.setCapabilityValue('dim', value / 254);
-		}, 0);
+		}, 01);
 
   }
 
