@@ -37,27 +37,27 @@
 
     "drivers": [
 	{
-                "id": "ESH_316GLED",
+                "id": "ESH316GLED",
                 "name": {
                     "en": "ESH 316GLED Dimmer RF PF"
                 },
                 "class": "light",
                 "capabilities": [ "onoff", "dim" ],
                 "zigbee": {
-                    "manufacturerName": "Elko",
+                    "manufacturerName": "ELKO",
                     "productId": "ElkoDimmerZHA",
                     "deviceId": 257,
-                    "profileId": 104,
+                    "profileId": 260,
 				    "learnmode": {
-                        "image": "/drivers/ESH_316GLED/assets/include.svg",
+                        "image": "/drivers/ESH316GLED/assets/include.svg",
                         "instruction": {
-                            "en": "Click on and hold dimmer wheel 1. and pushbutton 2. Until green LED flashes. Wait for Homey to list device"
+                            "en": "Click on and hold dimmer wheel 1. and pushbutton 2. Until green LED 3. flashes. Wait for Homey to list device"
                         }
                     }
                 },
                 "images": {
-                    "large": "/drivers/ESH_316GLED/assets/images/Large.png",
-                    "small": "/drivers/ESH_316GLED/assets/images/Small.png"
+                    "large": "/drivers/ESH316GLED/assets/images/Large.png",
+                    "small": "/drivers/ESH316GLED/assets/images/Small.png"
                 }
 	}
 	]
