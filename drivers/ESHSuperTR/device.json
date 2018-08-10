@@ -1,0 +1,10 @@
+'use strict';
+
+const ZigBeeDevice = require('homey-meshdriver').ZigBeeDevice;
+
+class ESH_Super_TR extends ZigBeeDevice {
+
+	
+}
+
+module.exports = ESH_Super_TR;
