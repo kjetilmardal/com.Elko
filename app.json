@@ -6,10 +6,7 @@
     "description": {
         "en": "This app adds support for your ELKO Smart Home devices"
     },
-    "category": [
-        "Climate",
-        "lights"
-    ],
+    "category": [ "lights" ],
     "version": "1.0.0",
     "compatibility": ">=1.5.3",
     "sdk": 2,
@@ -18,24 +15,24 @@
         "email": "prj_84@hotmail.com"
     },
     "images": {
-        "large": "./assets/images/large.jpg",
-        "small": "./assets/images/small.jpg"
+        "large": "/assets/images/Large.jpg",
+        "small": "/assets/images/small.jpg"
     },
 
-    "drivers": {
+    "drivers": [
+	{
                 "id": "ESH_316GLED",
                 "name": {
                     "en": "ESH 316GLED Dimmer RF PF"
                 },
                 "class": "light",
-                "capabilities": ["onoff", "dim"],
+                "capabilities": [ "onoff", "dim" ],
                 "zigbee": {
                     "manufacturerName": "Elko",
-                    "productId": ["ElkoDimmerZHA"],
+                    "productId": "ElkoDimmerZHA",
                     "deviceId": 257,
-                    "profileId": [104],
-
-                    "learnmode": {
+                    "profileId": 104,
+				    "learnmode": {
                         "image": "/drivers/ESH_316GLED/assets/include.svg",
                         "instruction": {
                             "en": "Click on and hold dimmer wheel 1. and pushbutton 2. Until green LED flashes. Wait for Homey to list device"
@@ -43,8 +40,9 @@
                     }
                 },
                 "images": {
-                    "large": "/drivers/ESH_316GLED/assets/images/large.png",
-                    "small": "/drivers/ESH_316GLED/assets/images/small.png"
+                    "large": "/drivers/ESH_316GLED/assets/images/Large.png",
+                    "small": "/drivers/ESH_316GLED/assets/images/Small.png"
                 }
 	}
+	]
 }
