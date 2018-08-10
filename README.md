@@ -8,6 +8,10 @@ Add support for Elko SmartHome to the Athom Homey
 ## Plan for support:
 - ESH Super TR RF PH - Floor Thermostat
   http://proff.elko.no/elko-smart-home-super-termostat/esh-plus-super-tr-rf-ph-article2629-1779.html
+  
+# Donate
+If you like the app, please donate so I can keep improving it!
+https://paypal.me/prj84
 
 # Changelog
 ## Version: 1.0.0
