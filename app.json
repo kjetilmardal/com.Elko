@@ -22,6 +22,14 @@
 		]
 	},
 	
+	  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "prj84"
+      }
+    }
+  },
+	
     "images": {
         "large": "/assets/images/Large.jpg",
         "small": "/assets/images/small.jpg"
