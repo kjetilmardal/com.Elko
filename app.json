@@ -35,19 +35,15 @@
             "profileId": [104], 
             
             "learnmode": {
-            "image": "/drivers/ESH 316GLED Dimmer RF PF/assets/include.svg",
+            "image": "/drivers/ESH_316GLED/assets/include.svg",
             "instruction": {
             "en": "Click on and hold dimmer wheel 1. and pushbutton 2. Until green LED flashes. Wait for Homey to list device",
       }
     }
   },
             "images": {
-            "large": "/drivers/ESH 316GLED Dimmer RF PF/assets/images/large.png",
-            "small": "/drivers/ESH 316GLED Dimmer RF PF/assets/images/small.png"
+            "large": "/drivers/ESH_316GLED/assets/images/large.png",
+            "small": "/drivers/ESH_316GLED/assets/images/small.png"
     }
- 
-        
-        
-        },
-              
-
+   },
+  }
