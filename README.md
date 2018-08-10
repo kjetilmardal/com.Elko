@@ -1,7 +1,7 @@
-# Athom Homey App for Elko SmartHome 
-Add support for Elko SmartHome
+# Elko SmartHome
+Add support for Elko SmartHome to the Athom Homey
 
-#Supports:
+# Supports:
 - ESH 316GLED RF PH - Dimmer
   http://proff.elko.no/elko-smart-home-316gled/esh-rs16-316gled-dimmer-rf-ph-article2622-1781.html
 
