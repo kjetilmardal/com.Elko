@@ -14,6 +14,14 @@
         "name": "Pål Raymond Johansen",
         "email": "prj_84@hotmail.com"
     },
+	"contributors": {
+		"developers": [
+			{ "name": "Martin Brasse",
+			"email": "kasteleman@gmail.com"
+			}
+		]
+	}
+	
     "images": {
         "large": "/assets/images/Large.jpg",
         "small": "/assets/images/small.jpg"
