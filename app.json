@@ -37,7 +37,7 @@
             "learnmode": {
             "image": "/drivers/ESH_316GLED/assets/include.svg",
             "instruction": {
-            "en": "Click on and hold dimmer wheel 1. and pushbutton 2. Until green LED flashes. Wait for Homey to list device",
+            "en": "Click on and hold dimmer wheel 1. and pushbutton 2. Until green LED flashes. Wait for Homey to list device"
       }
     }
   },
