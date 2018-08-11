@@ -1,7 +1,11 @@
-"use strict";
+const Homey = require('homey');
 
-function init() {
-	
+class ElkoApp extends Homey.App {
+  
+  onInit() {
+    this.log('Elko App is running!');
+  }
+  
 }
 
-module.exports.init = init;
+module.exports = ElkoApp;
