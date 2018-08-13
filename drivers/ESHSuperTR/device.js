@@ -14,6 +14,8 @@ class ESHSUPERTR extends ZigBeeDevice {
 }
 module.exports = ESHSUPERTR;
 
+//A lot more is found in ST_Code directory, many functions is not zigbee standard
+
 //2018-08-13 20:00:46 [log] [ManagerDrivers] [ESHSUPERTR] [0] ZigBeeDevice has been inited
 //2018-08-13 20:00:46 [log] [ManagerDrivers] [ESHSUPERTR] [0] ------------------------------------------
 //2018-08-13 20:00:46 [log] [ManagerDrivers] [ESHSUPERTR] [0] Node: f09495b9-8b75-42b2-94a5-d0218e378abf
