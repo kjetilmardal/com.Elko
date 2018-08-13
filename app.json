@@ -66,7 +66,7 @@
                     "en": "ESH SUPER TR Thermostat RF"
                 },
                 "class": "thermostat",
-                "capabilities": [ "hvacThermostat", "measure_temperature" ],
+                "capabilities": [ "target_temperature", "measure_temperature" ],
                 "capabilitiesOptions": {
 			"measure_temperature": {
           		"title": {
