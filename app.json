@@ -6,7 +6,7 @@
     "description": {
         "en": "This app adds support for your ELKO Smart Home devices"
     },
-    "category": [ "lights" ],
+    "category": [ "lights", "climate" ],
     "version": "1.0.0",
     "compatibility": ">=1.5.3",
     "sdk": 2,
@@ -59,6 +59,39 @@
                     "large": "/drivers/ESH316GLED/assets/images/Large.png",
                     "small": "/drivers/ESH316GLED/assets/images/Small.png"
                 }
+	},
+		{
+                "id": "ESHSUPERTR",
+                "name": {
+                    "en": "ESH SUPER TR Thermostat RF"
+                },
+                "class": "thermostat",
+                "capabilities": [ "hvacThermostat", "measure_temperature" ],
+                "capabilitiesOptions": {
+			"measure_temperature": {
+          		"title": {
+             		"en": "Air Temperature"
+          }
+        }
+      },
+		"zigbee": {
+                    "manufacturerName": "ELKO",
+                    "productId": ["Super TR"],
+                    "deviceId": 769,
+                    "profileId": 260,
+				    "learnmode": {
+                        "image": "/drivers/ESHSUPERTR/assets/include.svg",
+                        "instruction": {
+                            "en": "Click on and hold arrow up and M Button (1) until joining/pairing is displayed. Wait for Homey to list device"
+                        }
+                    }
+                },
+                "images": {
+                    "large": "/drivers/ESHSUPERTR/assets/images/Large.png",
+                    "small": "/drivers/ESHSUPERTR/assets/images/Small.png"
+                }
 	}
 	]
 }
+
+
