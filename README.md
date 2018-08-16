@@ -6,7 +6,7 @@ Add support for Elko SmartHome to the Athom Homey
   http://proff.elko.no/elko-smart-home-316gled/esh-rs16-316gled-dimmer-rf-ph-article2622-1781.html
  
 ## Plan for support:
-- ESH Super TR RF PH - Floor Thermostat (In working progrss)
+- ESH Super TR RF PH - Floor Thermostat (In working progress)
   http://proff.elko.no/elko-smart-home-super-termostat/esh-plus-super-tr-rf-ph-article2629-1779.html
   
 # Donate
