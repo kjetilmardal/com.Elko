@@ -14,6 +14,6 @@ Add support for Elko SmartHome to the Athom Homey
  https://paypal.me/prj84
  
 # Changelog
-## Version: 1.0.0
+## Version: 0.0.1
 - First beta
 - Includes support for ESH 316GLED RF PH - Dimmer
