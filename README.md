@@ -1,19 +1,24 @@
-# Elko SmartHome
-Add support for Elko SmartHome to the Athom Homey
+# homey-meshdriver
 
-# Supports:
-- ESH 316GLED RF PH - Dimmer (Still some bugs with forced_timeouts)
-  http://proff.elko.no/elko-smart-home-316gled/esh-rs16-316gled-dimmer-rf-ph-article2622-1781.html
+## Introduction
+This module is used to make the creation of Z-Wave & ZigBee apps easier.
 
-## Plan for support:
-- ESH Super TR RF PH - Floor Thermostat (In working progrss)
-  http://proff.elko.no/elko-smart-home-super-termostat/esh-plus-super-tr-rf-ph-article2629-1779.html
-  
-# Donate
-If you like the app, please donate so I can keep improving it!
-https://paypal.me/prj84
+It is essentially a map-tool from Homey-capabilities to Z-Wave Command Classes or ZigBee endpoints.
 
-# Changelog
-## Version: 1.0.0
-- First beta
-- Includes support for ESH 316GLED RF PH - Dimmer
+## Installation
+
+```bash
+$ npm install homey-meshdriver
+```
+
+## Usage
+
+### Z-Wave
+See [examples/fibaroplug.js](examples/fibaroplug.js) and [examples/fibaroplug.json](examples/fibaroplug.json)
+
+### Zigbee
+See [examples/tradfriBulb.js](examples/tradfriBulb.js) and [examples/tradfriBulb.json](examples/tradfriBulb.json)
+
+
+## Docs
+See [https://athombv.github.io/node-homey-meshdriver](https://athombv.github.io/node-homey-meshdriver)
