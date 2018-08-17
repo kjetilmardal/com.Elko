@@ -66,14 +66,24 @@
                     "en": "ESH SUPER TR Thermostat RF"
                 },
                 "class": "thermostat",
-                "capabilities": [ "target_temperature", "measure_temperature" ],
+                "capabilities": [ "target_temperature", "measure_temperature.air", "measure_temperature.floor", "locked", "measure_power", "meter_power" ],
                 "capabilitiesOptions": {
-			"measure_temperature": {
+			"measure_temperature.air": {
           		"title": {
              		"en": "Air Temperature"
-          }
-        }
-      },
+          		}
+			},
+			"measure_temperature.floor": {
+			"title":{
+			"en": "Floor Temperature"
+			}
+			},
+			"locked":{
+			"title": {
+			"en":"Child Lock"
+			}
+			}
+        },
 		"zigbee": {
                     "manufacturerName": "ELKO",
                     "productId": ["Super TR"],
