@@ -9,42 +9,57 @@ class ESHSUPERTR extends ZigBeeDevice {
 	onMeshInit() {
 		this.enableDebug();
 		this.printNode();
-		this.heatingType = 1;
 
-		// write programingOperMode
-		this.node.endpoints[0].clusters.hvacThermostat.write('systemMode', 2)
-			.then(result => {
-				this.log('programingsystemMode: ', result);
-			})
-			.catch(err => {
-				this.log('could not write programingsystemMode');
-				this.log(err);
-			});
-
-		// read occupance
+		// Read if Thermostat i heating or not - (heat = 1, no heat = 0)
 
 		this.node.endpoints[0].clusters.hvacThermostat.read('1045')
 			.then(result => {
-				this.log('1045: ', result);
 				if (result === 1) {
-					this.heatingType = 1;
+					this.log('Heating is active');
+		//			this.setCapabilityValue('?', value);
 				}
 				if (result === 0) {
-					this.heatingType = 0;
+					this.log('Heating is inactive');
+		//			this.setCapabilityValue('?', value);			
 				}
 			})
 			.catch(err => {
 				this.log('could not read 1045');
 				this.log(err);
 			});
+		
+		// reportlisteners for Thermostat heating or not
+		//this.registerAttrReportListener('hvacThermostat', '1045', 1, 60, 1, data => {
+		//	this.log('Heating', data, parsedValue);
+		//	this.setCapabilityValue('thermostat_mode', parsedValue);
+		//}, 0);
 
+		// Read if Thermostat has child lock active or not - (active = 1, not active = 0)
+
+		this.node.endpoints[0].clusters.hvacThermostat.read('1043')
+			.then(result => {
+				if (result === 1) {
+					this.log('Child lock active')
+		//			this.setCapabilityValue('locked', 'True');
+				}
+				if (result === 0) {
+					this.log('Child lock not active')
+		//			this.setCapabilityValue('locked', 'False');
+				}
+			})
+			.catch(err => {
+				this.log('could not read 1043');
+				this.log(err);
+			});
+		
+		
+		
 		// Register target_temperature capability
 		// Setpoint of thermostat
-		this.registerCapability('target_temperature.air', 'hvacThermostat', {
+		this.registerCapability('target_temperature', 'hvacThermostat', {
 			set: 'occupiedHeatingSetpoint',
 			setParser(value) {
 				// this.setCommandParser(value).bind(this);
-				if (this.heatingType === 1) {
 					this.node.endpoints[0].clusters.hvacThermostat.write('occupiedHeatingSetpoint',
 						Math.round(value * 1000 / 10))
 						.then(res => {
@@ -54,19 +69,6 @@ class ESHSUPERTR extends ZigBeeDevice {
 							this.error('Error write occupiedHeatingSetpoint: ', err);
 						});
 					return null;
-				}
-				if (this.heatingType === 0) {
-					this.node.endpoints[0].clusters.hvacThermostat.write('unoccupiedHeatingSetpoint',
-						Math.round(value * 1000 / 10))
-						.then(res => {
-							this.log('write unoccupiedHeatingSetpoint: ', res);
-						})
-						.catch(err => {
-							this.error('Error write unoccupiedHeatingSetpoint: ', err);
-						});
-					return null;
-				}
-
 			},
 			get: 'occupiedHeatingSetpoint',
 			reportParser(value) {
@@ -80,12 +82,10 @@ class ESHSUPERTR extends ZigBeeDevice {
 		});
 
 		// reportlisteners for the occupiedHeatingSetpoint
-		// this is the setpoint if ocupancy is set to 1, this is per default
-		// if ocupancy is set to 0, unoccupiedHeatingSetpoint is the setpoint for the Heating
 		this.registerAttrReportListener('hvacThermostat', 'occupiedHeatingSetpoint', 1, 60, 1, data => {
 			const parsedValue = Math.round((data / 100) * 10) / 10;
 			this.log('occupiedHeatingSetpoint: ', data, parsedValue);
-			if (this.heatingType === 1) this.setCapabilityValue('target_temperature', parsedValue);
+			this.setCapabilityValue('target_temperature', parsedValue);
 		}, 0);
 
 		
@@ -102,24 +102,40 @@ class ESHSUPERTR extends ZigBeeDevice {
 				getOnStart: true,
 			},
 		});
-
+ 
 		this.registerAttrReportListener('hvacThermostat', 'localTemp', 1, 300, 50, value => {
 			const parsedValue = Math.round((value / 100) * 10) / 10;
-			this.log('hvacThermostat - localTemp: ', value, parsedValue);
+			this.log('Air temperature: ', value, parsedValue);
 			this.setCapabilityValue('measure_temperature.air', parsedValue);
 		}, 0);
 		
-		//		if (this.hasCapability('dim')) this.registerCapability('dim', 'genLevelCtrl');
-		//this.registerAttrReportListener('genLevelCtrl', 'currentLevel', 1, 3600, 1, value => {
-		//	this.log('dim report', value);
-		//	this.setCapabilityValue('dim', value / 254);
-		//}, 0);
 		
+		// Floor Temperature
+		this.node.endpoints[0].clusters.hvacThermostat.read('1033')
+		.then(result => {
+	//		reportParser(value) {
+	//			return Math.round((value / 100) * 10) / 10;
+	//		},
+			this.log('Floor temperature: ', value);
+			this.setCapabilityValue('measure_temperature.floor', value);
+			})
+			
+		//	this.registerCapability('measure_temperature.floor', 'hvacThermostat', {
+		//	get: '1033',
+		//	reportParser(value) {
+		//		return Math.round((value / 100) * 10) /10;
+		//	},
+		//	report: '1033',
+		//	getOpts: {
+		//		getOnLine: true,
+		//		getOnStart: true,
+		//	},
+		//});
+
+			
   }
 }
 module.exports = ESHSUPERTR;
-
-//A lot more is found in ST_Code directory, many functions is not zigbee standard
 
 //2018-08-13 20:00:46 [log] [ManagerDrivers] [ESHSUPERTR] [0] ZigBeeDevice has been inited
 //2018-08-13 20:00:46 [log] [ManagerDrivers] [ESHSUPERTR] [0] ------------------------------------------
