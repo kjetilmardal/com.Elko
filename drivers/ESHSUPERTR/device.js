@@ -34,11 +34,11 @@ class ESHSUPERTR extends ZigBeeDevice {
 			.then(result => {
 				if (result === 1) {
 					this.log('Child lock active')
-		//		this.setCapabilityValue('locked', value === 1);
+					this.setCapabilityValue('locked', value === true);
 				}
 				if (result === 0) {
 					this.log('Child lock not active')
-		//		this.setCapabilityValue('locked', value === 0);
+					this.setCapabilityValue('locked', value === false);
 				}
 			})
 			.catch(err => {
@@ -53,7 +53,6 @@ class ESHSUPERTR extends ZigBeeDevice {
 		this.registerCapability('target_temperature', 'hvacThermostat', {
 			set: 'occupiedHeatingSetpoint',
 			setParser(value) {
-				// this.setCommandParser(value).bind(this);
 					this.node.endpoints[0].clusters.hvacThermostat.write('occupiedHeatingSetpoint',
 						Math.round(value * 1000 / 10))
 						.then(res => {
