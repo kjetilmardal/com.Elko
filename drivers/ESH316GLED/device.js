@@ -11,7 +11,7 @@ class ESH316GLED  extends ZigBeeDevice {
 		this.printNode();
 
 		if (this.hasCapability('onoff')) this.registerCapability('onoff', 'genOnOff');
-		this.registerAttrReportListener('genOnOff', 'onOff', 5, 3600, 5, value => {
+		this.registerAttrReportListener('genOnOff', 'onOff', 5, 3600, null, value => {
 			this.log('onoff', value);
 			this.setCapabilityValue('onoff', value === 1);
 		}, 0);
