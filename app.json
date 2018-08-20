@@ -14,19 +14,17 @@
         "name": "Pål Raymond Johansen",
         "email": "prj_84@hotmail.com"
     },
-	"contributors": {
-		"developers": [
-			{ "name": "Martin Brasse",
-			"email": "kasteleman@gmail.com"
-			}
-		],
-    "developers": [
-			{ "name": "Nils-Martn Skaanes",
-			"email": "nilskaa@gmail.com"
-			}
-		]
+	  "contributors": {
+		    "developers": [
+			{      "name": "Martin Brasse",
+			       "email": "kasteleman@gmail.com"
+           },
+      {      "name": "Nils-Martn Skaanes",
+             "email": "nilskaa@gmail.com"
+           }
+    ]
 	},
-	
+
 	  "contributing": {
     "donate": {
       "paypal": {
@@ -73,37 +71,74 @@
                 "class": "thermostat",
                 "capabilities": [ "target_temperature", "measure_temperature.air", "measure_temperature.floor", "locked", "measure_power", "meter_power" ],
                 "capabilitiesOptions": {
-			"measure_temperature.air": {
-          		"title": {
-             		"en": "Air Temperature"
-          		}
-			},
-			"measure_temperature.floor": {
-			"title":{
-			"en": "Floor Temperature"
-			}
-			},
-			"locked":{
-			"title": {
-			"en":"Child Lock"
-			}
-			}
+                    "target_temperature": {
+                        "min": 5,
+                        "max": 28,
+                        "step": 0.5
+                              },
+			               "measure_temperature.air": {
+          		           "title": {
+             		            "en": "Air Temperature"
+          		                  }
+			                           },
+			               "measure_temperature.floor": {
+                          "title":{
+			                         "en": "Floor Temperature"
+			                          }
+			                           },
+			               "locked":{
+                          "type": "boolean",
+			                    "title": {
+			                         "en":"Child Lock"
+                             },
+                             "getable": true,
+                             "setable": true
+			                        }
         },
+
+      "mobile": {
+                "components": [
+                  {
+                    "id": "icon",
+                    "capabilities": [
+                    ]
+                  },
+                  {
+                    "id": "sensor",
+                    "capabilities": [ "measure_temperature.air", "measure_temperature.floor" ],
+                    "options": {
+                        "showTitle": true
+                    }
+                  },
+                  {
+                    "id": "toggle",
+                    "capabilities": [ "locked" ],
+                    "options": {
+                      "showTitle": true
+                    }
+                  },
+                  {
+                    "id": "thermostat",
+                    "capabilities": [ "target_temperature" ]
+                  }
+                ]
+              },
+
 		"zigbee": {
                     "manufacturerName": "ELKO",
                     "productId": ["Super TR"],
                     "deviceId": 769,
                     "profileId": 260,
-				    "learnmode": {
-                        "image": "/drivers/ESHSUPERTR/assets/include.svg",
-                        "instruction": {
-                            "en": "Click on and hold arrow up and M Button (1) until joining/pairing is displayed. Wait for Homey to list device"
+				                "learnmode": {
+                          "image": "/drivers/ESHSUPERTR/assets/include.svg",
+                          "instruction": {
+                              "en": "Click on and hold arrow up and M Button (1) until joining/pairing is displayed. Wait for Homey to list device"
                         }
                     }
                 },
-                "images": {
-                    "large": "/drivers/ESHSUPERTR/assets/images/Large.png",
-                    "small": "/drivers/ESHSUPERTR/assets/images/Small.png"
+                    "images": {
+                      "large": "/drivers/ESHSUPERTR/assets/images/Large.png",
+                      "small": "/drivers/ESHSUPERTR/assets/images/Small.png"
                 }
 	}
 	]
