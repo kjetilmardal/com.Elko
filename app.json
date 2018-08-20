@@ -19,6 +19,11 @@
 			{ "name": "Martin Brasse",
 			"email": "kasteleman@gmail.com"
 			}
+		],
+    "developers": [
+			{ "name": "Nils-Martn Skaanes",
+			"email": "nilskaa@gmail.com"
+			}
 		]
 	},
 	
@@ -29,7 +34,7 @@
       }
     }
   },
-	
+
     "images": {
         "large": "/assets/images/Large.jpg",
         "small": "/assets/images/small.jpg"
@@ -103,5 +108,3 @@
 	}
 	]
 }
-
-
