@@ -34,3 +34,4 @@ Add support for Elko SmartHome to the Athom Homey
 ## Version: 0.0.1
 - First beta
 - Includes support for ESH 316GLED RF PH - Dimmer
+- Includes support for ESH Super TR RF PH - Thermostat
