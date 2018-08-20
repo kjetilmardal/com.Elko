@@ -20,19 +20,13 @@ class ESHSUPERTR extends ZigBeeDevice {
 				}
 				if (result === 0) {
 					this.log('Heating is inactive');
-		//			this.setCapabilityValue('?', value);			
+		//			this.setCapabilityValue('?', value);
 				}
 			})
 			.catch(err => {
 				this.log('could not read 1045');
 				this.log(err);
 			});
-		
-		// reportlisteners for Thermostat heating or not
-		//this.registerAttrReportListener('hvacThermostat', '1045', 1, 60, 1, data => {
-		//	this.log('Heating', data, parsedValue);
-		//	this.setCapabilityValue('thermostat_mode', parsedValue);
-		//}, 0);
 
 		// Read if Thermostat has child lock active or not - (active = 1, not active = 0)
 
@@ -40,20 +34,20 @@ class ESHSUPERTR extends ZigBeeDevice {
 			.then(result => {
 				if (result === 1) {
 					this.log('Child lock active')
-		//			this.setCapabilityValue('locked', 'True');
+		//		this.setCapabilityValue('locked', value === 1);
 				}
 				if (result === 0) {
 					this.log('Child lock not active')
-		//			this.setCapabilityValue('locked', 'False');
+		//		this.setCapabilityValue('locked', value === 0);
 				}
 			})
 			.catch(err => {
 				this.log('could not read 1043');
 				this.log(err);
 			});
-		
-		
-		
+
+
+
 		// Register target_temperature capability
 		// Setpoint of thermostat
 		this.registerCapability('target_temperature', 'hvacThermostat', {
@@ -88,8 +82,8 @@ class ESHSUPERTR extends ZigBeeDevice {
 			this.setCapabilityValue('target_temperature', parsedValue);
 		}, 0);
 
-		
-		
+
+
 		// Air Temperature
 		this.registerCapability('measure_temperature.air', 'hvacThermostat', {
 			get: 'localTemp',
@@ -102,37 +96,25 @@ class ESHSUPERTR extends ZigBeeDevice {
 				getOnStart: true,
 			},
 		});
- 
+
 		this.registerAttrReportListener('hvacThermostat', 'localTemp', 1, 300, 50, value => {
 			const parsedValue = Math.round((value / 100) * 10) / 10;
 			this.log('Air temperature: ', value, parsedValue);
 			this.setCapabilityValue('measure_temperature.air', parsedValue);
 		}, 0);
-		
-		
+
+
 		// Floor Temperature
 		this.node.endpoints[0].clusters.hvacThermostat.read('1033')
 		.then(result => {
-	//		reportParser(value) {
-	//			return Math.round((value / 100) * 10) / 10;
-	//		},
-			this.log('Floor temperature: ', value);
-			this.setCapabilityValue('measure_temperature.floor', value);
-			})
-			
-		//	this.registerCapability('measure_temperature.floor', 'hvacThermostat', {
-		//	get: '1033',
-		//	reportParser(value) {
-		//		return Math.round((value / 100) * 10) /10;
-		//	},
-		//	report: '1033',
-		//	getOpts: {
-		//		getOnLine: true,
-		//		getOnStart: true,
-		//	},
-		//});
+			reportParser(value) {
+				return Math.round((value / 100) * 10) / 10;
+			},
+			this.log('Floor temperature: ', value, parsedValue);
+			this.setCapabilityValue('measure_temperature.floor', value, parsedValue);
+		});
 
-			
+
   }
 }
 module.exports = ESHSUPERTR;
