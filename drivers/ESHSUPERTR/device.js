@@ -111,7 +111,7 @@ class ESHSUPERTR extends ZigBeeDevice {
 				return Math.round((value / 100) * 10) / 10;
 			},
 			this.log('Floor temperature: ', value, parsedValue);
-			this.setCapabilityValue('measure_temperature.floor', value, parsedValue);
+			this.setCapabilityValue('measure_temperature.floor', parsedValue);
 		});
 
 
