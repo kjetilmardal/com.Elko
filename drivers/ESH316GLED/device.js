@@ -4,8 +4,6 @@ const Homey = require('homey');
 
 const ZigBeeDevice = require('homey-meshdriver').ZigBeeDevice;
 
-//#suggestion for code, don't own device so not sure abouit endpoint etc. So therefore the output on console from this.printNode() is essential to get needed info.
-
 class ESH316GLED  extends ZigBeeDevice {
 
 	onMeshInit() {
@@ -13,18 +11,19 @@ class ESH316GLED  extends ZigBeeDevice {
 		this.printNode();
 
 		if (this.hasCapability('onoff')) this.registerCapability('onoff', 'genOnOff');
-		this.registerAttrReportListener('genOnOff', 'onOff', 1, 3600, 1, value => {
+		this.registerAttrReportListener('genOnOff', 'onOff', 5, 3600, 5, value => {
 			this.log('onoff', value);
 			this.setCapabilityValue('onoff', value === 1);
 		}, 0);
 
 		if (this.hasCapability('dim')) this.registerCapability('dim', 'genLevelCtrl');
-		this.registerAttrReportListener('genLevelCtrl', 'currentLevel', 1, 3600, 1, value => {
+		this.registerAttrReportListener('genLevelCtrl', 'currentLevel', 5, 3600, 5, value => {
 			this.log('dim report', value);
 			this.setCapabilityValue('dim', value / 254);
 		}, 0);
 
-  }
+
+		}
 }
 
 module.exports = ESH316GLED;
