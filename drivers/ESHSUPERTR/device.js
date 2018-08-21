@@ -34,11 +34,11 @@ class ESHSUPERTR extends ZigBeeDevice {
 			.then(result => {
 				if (result === 1) {
 					this.log('Child lock active')
-					this.setCapabilityValue('locked', value === true);
+		//			this.setCapabilityValue('locked', value === true);
 				}
 				if (result === 0) {
 					this.log('Child lock not active')
-					this.setCapabilityValue('locked', value === false);
+		//			this.setCapabilityValue('locked', value === false);
 				}
 			})
 			.catch(err => {
@@ -96,7 +96,7 @@ class ESHSUPERTR extends ZigBeeDevice {
 			},
 		});
 
-		this.registerAttrReportListener('hvacThermostat', 'localTemp', 1, 300, 50, value => {
+		this.registerAttrReportListener('hvacThermostat', 'localTemp', 300, 600, 50, value => {
 			const parsedValue = Math.round((value / 100) * 10) / 10;
 			this.log('Air temperature: ', value, parsedValue);
 			this.setCapabilityValue('measure_temperature.air', parsedValue);
@@ -104,15 +104,33 @@ class ESHSUPERTR extends ZigBeeDevice {
 
 
 		// Floor Temperature
-		this.node.endpoints[0].clusters.hvacThermostat.read('1033')
+		this.node.endpoints[0].clusters.hvacThermostat.read(1033)
 		.then(result => {
-			reportParser(value) {
-				return Math.round((value / 100) * 10) / 10;
-			},
-			this.log('Floor temperature: ', value, parsedValue);
-			this.setCapabilityValue('measure_temperature.floor', parsedValue);
+			this.log('Floor temperature: ', (result / 100));
+			this.setCapabilityValue('measure_temperature.floor', (result / 100));
 		});
 
+		//Testing setting up registerAttrReportListener for cluster 1033
+		//test 0
+		//this.registerAttrReportListener('hvacThermostat', ('1033'), 1, 60, 50, value => {
+			//const parsedValue = Math.round((value / 100) * 10) / 10;
+			//this.log('Floor temperature: ', value, parsedValue);
+			//this.setCapabilityValue('measure_temperature.floor', parsedValue);
+		//}, 0);
+
+		//test 1
+		this.registerAttrReportListener('hvacThermostat', '1033', 1, 60, 1 data => {
+				this.log(' Att listener - Floor temperature:', data);
+				this.setCapabilityValue('measure_temperature.floor', (result / 100));
+		}, 0);
+
+		//test 2
+		//this._attrReportListeners['hvacThermostat'] = this._attrReportListeners['hvacThermostat'] || {};
+		//this._attrReportListeners['hvacThermostat']['1033'] = this.onLifelineReport.bind(this);
+
+		//onLifelineReport(value) {
+		//this.log('lifeline report', new Buffer(value, 'ascii'));
+		//}
 
   }
 }
