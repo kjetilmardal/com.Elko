@@ -11,10 +11,11 @@ Add support for Elko SmartHome to the Athom Homey
   - Reads floor and air temp
   - Reads Thermostat set temp
   - Thermostat set temp is editable
+  - Reads child lock status
 
 ## Plan for support:
   - **ESH Super TR RF PH**
-    - Read/Set child lock status
+    - Set child lock status
     - See if Thermostat is active/inactive
     - See if air or floor temperature is active thermostat source
 
