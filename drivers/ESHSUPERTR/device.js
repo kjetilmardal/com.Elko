@@ -10,6 +10,7 @@ class ESHSUPERTR extends ZigBeeDevice {
 		this.enableDebug();
 		this.printNode();
 
+
 		// Read if Thermostat i heating or not - (heat = 1, no heat = 0)
 
 		this.node.endpoints[0].clusters.hvacThermostat.read('1045')
@@ -63,6 +64,7 @@ class ESHSUPERTR extends ZigBeeDevice {
 						});
 					return null;
 			},
+
 			get: 'occupiedHeatingSetpoint',
 			reportParser(value) {
 				return Math.round((value / 100) * 10) / 10;
@@ -77,13 +79,14 @@ class ESHSUPERTR extends ZigBeeDevice {
 		// reportlisteners for the occupiedHeatingSetpoint
 		this.registerAttrReportListener('hvacThermostat', 'occupiedHeatingSetpoint', 1, 60, 1, data => {
 			const parsedValue = Math.round((data / 100) * 10) / 10;
-			this.log('occupiedHeatingSetpoint: ', data, parsedValue);
+			this.log('Att listener occupiedHeatingSetpoint: ', data, parsedValue);
 			this.setCapabilityValue('target_temperature', parsedValue);
 		}, 0);
 
 
 
 		// Air Temperature
+		// Register capability
 		this.registerCapability('measure_temperature.air', 'hvacThermostat', {
 			get: 'localTemp',
 			reportParser(value) {
@@ -93,46 +96,42 @@ class ESHSUPERTR extends ZigBeeDevice {
 			getOpts: {
 				getOnLine: true,
 				getOnStart: true,
+				pollInterval: 60000,
 			},
 		});
 
-		this.registerAttrReportListener('hvacThermostat', 'localTemp', 300, 600, 50, value => {
+		//Att report listener - (disabled - use pollintarval to match floor temp)
+		/*this.registerAttrReportListener('hvacThermostat', 'localTemp', 300, 600, 50, value => {
 			const parsedValue = Math.round((value / 100) * 10) / 10;
-			this.log('Air temperature: ', value, parsedValue);
+			this.log('Att listener - Air temperature: ', value, parsedValue);
 			this.setCapabilityValue('measure_temperature.air', parsedValue);
 		}, 0);
-
+*/
 
 		// Floor Temperature
-		this.node.endpoints[0].clusters.hvacThermostat.read(1033)
-		.then(result => {
-			this.log('Floor temperature: ', (result / 100));
-			this.setCapabilityValue('measure_temperature.floor', (result / 100));
+		//Register capability
+		//Poll i used since there is no way to set up att listemer to att 1033 without geting error
+		this.registerCapability('measure_temperature.floor', 'hvacThermostat', {
+			get: '1033',
+			reportParser(value) {
+				return Math.round((value / 100) * 10) / 10;
+			},
+			report: '1033',
+			getOpts: {
+				getOnLine: true,
+				getOnStart: true,
+				pollInterval: 60000,
+			},
 		});
 
-		//Testing setting up registerAttrReportListener for cluster 1033
-		//test 0
-		//this.registerAttrReportListener('hvacThermostat', ('1033'), 1, 60, 50, value => {
-			//const parsedValue = Math.round((value / 100) * 10) / 10;
-			//this.log('Floor temperature: ', value, parsedValue);
-			//this.setCapabilityValue('measure_temperature.floor', parsedValue);
-		//}, 0);
-
-		//test 1
-		this.registerAttrReportListener('hvacThermostat', '1033', 1, 60, 1 data => {
-				this.log(' Att listener - Floor temperature:', data);
-				this.setCapabilityValue('measure_temperature.floor', (result / 100));
+		//Att report listener - (disabled - use pollintarval - Poll i used since there is no way to set up att listemer to att 1033 without geting error)
+		/*this.registerAttrReportListener('hvacThermostat', '1033', 300, 600, 50, value => {
+			const parsedValue = Math.round((value / 100) * 10) / 10;
+			this.log('Att listener - Floor temperature: ', value, parsedValue);
+			this.setCapabilityValue('measure_temperature.floor', parsedValue);
 		}, 0);
+*/
 
-		//test 2
-		//this._attrReportListeners['hvacThermostat'] = this._attrReportListeners['hvacThermostat'] || {};
-		//this._attrReportListeners['hvacThermostat']['1033'] = this.onLifelineReport.bind(this);
-
-		//onLifelineReport(value) {
-		//this.log('lifeline report', new Buffer(value, 'ascii'));
-		//}
-
-  }
 }
 module.exports = ESHSUPERTR;
 
