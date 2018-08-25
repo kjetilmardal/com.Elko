@@ -38,6 +38,7 @@
         "small": "/assets/images/small.jpg"
     },
 
+
     "drivers": [
 	{
                 "id": "ESH316GLED",
@@ -69,11 +70,11 @@
                     "en": "ESH SUPER TR Thermostat RF"
                 },
                 "class": "thermostat",
-                "capabilities": [ "target_temperature", "measure_temperature.air", "measure_temperature.floor", "locked", "measure_power", "meter_power" ],
+                "capabilities": [ "target_temperature", "measure_temperature.air", "measure_temperature.floor", "onoff.heat", "measure_power", "meter_power", "onoff.childlock" ],
                 "capabilitiesOptions": {
                     "target_temperature": {
                         "min": 5,
-                        "max": 28,
+                        "max": 50,
                         "step": 0.5
                               },
 			               "measure_temperature.air": {
@@ -86,14 +87,22 @@
 			                         "en": "Floor Temperature"
 			                          }
 			                           },
-			               "locked":{
-                          "type": "boolean",
+			               "onoff.childlock":{
+
 			                    "title": {
 			                         "en":"Child Lock"
                              },
                              "getable": true,
-                             "setable": true
-			                        }
+                             "setable": false
+                              },
+                      "onoff.heat":{
+
+                           "title": {
+                                "en":"Heating state"
+                              },
+                              "getable": true,
+                              "setable": false
+                             }
         },
 
       "mobile": {
@@ -105,16 +114,13 @@
                   },
                   {
                     "id": "sensor",
-                    "capabilities": [ "measure_temperature.air", "measure_temperature.floor" ],
+                    "capabilities": [ "onoff.heat", "measure_temperature.air", "measure_temperature.floor", "onoff.childlock" ],
                     "options": {
+                        "icons":{
+                          "onoff.heat": "/drivers/ESHSUPERTR/assets/heating.svg",
+                          "onoff.childlock": "/drivers/ESHSUPERTR/assets/child.svg"
+                        },
                         "showTitle": true
-                    }
-                  },
-                  {
-                    "id": "toggle",
-                    "capabilities": [ "locked" ],
-                    "options": {
-                      "showTitle": true
                     }
                   },
                   {
@@ -143,3 +149,4 @@
 	}
 	]
 }
+
