@@ -8,45 +8,41 @@ class ESHSUPERTR extends ZigBeeDevice {
 
 	onMeshInit() {
 		this.enableDebug();
-		this.printNode();
+		//this.printNode();
 
 
-		// Read if Thermostat i heating or not - (heat = 1, no heat = 0)
 
-		this.node.endpoints[0].clusters.hvacThermostat.read('1045')
-			.then(result => {
-				if (result === 1) {
-					this.log('Heating is active');
-		//			this.setCapabilityValue('?', value);
-				}
-				if (result === 0) {
-					this.log('Heating is inactive');
-		//			this.setCapabilityValue('?', value);
-				}
-			})
-			.catch(err => {
-				this.log('could not read 1045');
-				this.log(err);
+			// Reads if Thermostat is heating or not
+			//Register capability
+			//Poll i used since there is no way to set up att listemer to att 1045 without geting error
+			this.registerCapability('onoff.heat', 'hvacThermostat', {
+				get: '1045',
+				reportParser(value) {
+					return value === 1;
+    },
+				report: '1045',
+				getOpts: {
+					getOnLine: true,
+					getOnStart: true,
+					pollInterval: 60000,
+				},
 			});
 
-		// Read if Thermostat has child lock active or not - (active = 1, not active = 0)
-
-		this.node.endpoints[0].clusters.hvacThermostat.read('1043')
-			.then(result => {
-				if (result === 1) {
-					this.log('Child lock active')
-		//			this.setCapabilityValue('locked', value === true);
-				}
-				if (result === 0) {
-					this.log('Child lock not active')
-		//			this.setCapabilityValue('locked', value === false);
-				}
-			})
-			.catch(err => {
-				this.log('could not read 1043');
-				this.log(err);
+			// Reads childlock status
+			//Register capability
+			//Poll i used since there is no way to set up att listemer to att 1043 without geting error
+			this.registerCapability('onoff.childlock', 'hvacThermostat', {
+				get: '1043',
+				reportParser(value) {
+					return value === 1;
+		},
+				report: '1043',
+				getOpts: {
+					getOnLine: true,
+					getOnStart: true,
+					pollInterval: 60000,
+				},
 			});
-
 
 
 		// Register target_temperature capability
@@ -96,7 +92,7 @@ class ESHSUPERTR extends ZigBeeDevice {
 			getOpts: {
 				getOnLine: true,
 				getOnStart: true,
-				pollInterval: 60000,
+				pollInterval: 600000,
 			},
 		});
 
@@ -120,7 +116,7 @@ class ESHSUPERTR extends ZigBeeDevice {
 			getOpts: {
 				getOnLine: true,
 				getOnStart: true,
-				pollInterval: 60000,
+				pollInterval: 600000,
 			},
 		});
 
@@ -132,6 +128,7 @@ class ESHSUPERTR extends ZigBeeDevice {
 		}, 0);
 */
 
+	}
 }
 module.exports = ESHSUPERTR;
 
@@ -182,3 +179,4 @@ module.exports = ESHSUPERTR;
 //2018-08-13 20:00:46 [log] [ManagerDrivers] [ESHSUPERTR] [0] ---- ctrlSeqeOfOper : 2
 //2018-08-13 20:00:46 [log] [ManagerDrivers] [ESHSUPERTR] [0] ---- systemMode : 1
 //2018-08-13 20:00:46 [log] [ManagerDrivers] [ESHSUPERTR] [0] ------------------------------------------
+
