@@ -11,7 +11,6 @@ class ESHSUPERTR extends ZigBeeDevice {
 		//this.printNode();
 
 
-
 			// Reads if Thermostat is heating or not
 			//Register capability
 			//Poll i used since there is no way to set up att listemer to att 1045 without geting error
@@ -40,7 +39,7 @@ class ESHSUPERTR extends ZigBeeDevice {
 				getOpts: {
 					getOnLine: true,
 					getOnStart: true,
-					pollInterval: 60000,
+					pollInterval: 600000,
 				},
 			});
 
@@ -179,4 +178,3 @@ module.exports = ESHSUPERTR;
 //2018-08-13 20:00:46 [log] [ManagerDrivers] [ESHSUPERTR] [0] ---- ctrlSeqeOfOper : 2
 //2018-08-13 20:00:46 [log] [ManagerDrivers] [ESHSUPERTR] [0] ---- systemMode : 1
 //2018-08-13 20:00:46 [log] [ManagerDrivers] [ESHSUPERTR] [0] ------------------------------------------
-
