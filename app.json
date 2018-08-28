@@ -60,8 +60,8 @@
                     }
                 },
                 "images": {
-                    "large": "/drivers/ESH316GLED/assets/images/Large.png",
-                    "small": "/drivers/ESH316GLED/assets/images/Small.png"
+                    "large": "/drivers/ESH316GLED/assets/images/Large.jpg",
+                    "small": "/drivers/ESH316GLED/assets/images/Small.jpg"
                 }
 	},
 		{
@@ -143,8 +143,8 @@
                     }
                 },
                     "images": {
-                      "large": "/drivers/ESHSUPERTR/assets/images/Large.png",
-                      "small": "/drivers/ESHSUPERTR/assets/images/Small.png"
+                      "large": "/drivers/ESHSUPERTR/assets/images/Large.jpg",
+                      "small": "/drivers/ESHSUPERTR/assets/images/Small.jpg"
                 }
 	}
 	]
