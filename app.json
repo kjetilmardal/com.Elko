@@ -7,7 +7,7 @@
         "en": "This app adds support for your ELKO Smart Home devices"
     },
     "category": [ "lights", "climate" ],
-    "version": "0.0.1",
+    "version": "0.0.2",
     "compatibility": ">=1.5.3",
     "sdk": 2,
     "author": {
@@ -70,7 +70,13 @@
                     "en": "ESH SUPER TR Thermostat RF"
                 },
                 "class": "thermostat",
-                "capabilities": [ "target_temperature", "measure_temperature.air", "measure_temperature.floor", "onoff.heat", "measure_power", "meter_power", "onoff.childlock" ],
+                "capabilities": [ "target_temperature",
+                  "measure_temperature.air",
+                  "measure_temperature.floor",
+                  "measure_power",
+                  "meter_power",
+                  "onoff.childlock",
+                  "onoff.heat" ],
                 "capabilitiesOptions": {
                     "target_temperature": {
                         "min": 5,
@@ -79,26 +85,24 @@
                               },
 			               "measure_temperature.air": {
           		           "title": {
-             		            "en": "Air Temperature"
+             		            "en": "Air"
           		                  }
 			                           },
 			               "measure_temperature.floor": {
                           "title":{
-			                         "en": "Floor Temperature"
+			                         "en": "Floor"
 			                          }
 			                           },
 			               "onoff.childlock":{
-
 			                    "title": {
 			                         "en":"Child Lock"
                              },
                              "getable": true,
-                             "setable": false
+                             "setable": true
                               },
                       "onoff.heat":{
-
                            "title": {
-                                "en":"Heating state"
+                                "en":"Heating"
                               },
                               "getable": true,
                               "setable": false
@@ -114,7 +118,11 @@
                   },
                   {
                     "id": "sensor",
-                    "capabilities": [ "onoff.heat", "measure_temperature.air", "measure_temperature.floor", "onoff.childlock" ],
+                    "capabilities": [ "onoff.heat",
+                      "measure_temperature.air",
+                      "measure_temperature.floor",
+                      "onoff.childlock"
+                    ],
                     "options": {
                         "icons":{
                           "onoff.heat": "/drivers/ESHSUPERTR/assets/heating.svg",
@@ -149,4 +157,3 @@
 	}
 	]
 }
-
