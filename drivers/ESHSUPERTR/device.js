@@ -21,7 +21,7 @@ class ESHSUPERTR extends ZigBeeDevice {
 				getOpts: {
 					getOnLine: true,
 					getOnStart: true,
-					pollInterval: 6000,
+					pollInterval: 10000,
 				},
 			});
 
@@ -36,7 +36,7 @@ class ESHSUPERTR extends ZigBeeDevice {
 				getOpts: {
 					getOnLine: true,
 					getOnStart: true,
-					pollInterval: 6000,
+					pollInterval: 600000,
 				},
 			});
 
