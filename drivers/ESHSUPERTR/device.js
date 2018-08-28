@@ -16,30 +16,27 @@ class ESHSUPERTR extends ZigBeeDevice {
 			//Poll i used since there is no way to set up att listemer to att 1045 without geting error
 			this.registerCapability('onoff.heat', 'hvacThermostat', {
 				get: '1045',
-				reportParser(value) {
-					return value === 1;
-    },
+				reportParser: value => value === 1,
 				report: '1045',
 				getOpts: {
 					getOnLine: true,
 					getOnStart: true,
-					pollInterval: 60000,
+					pollInterval: 6000,
 				},
 			});
 
-			// Reads childlock status
+
+			// Read childlock status
 			//Register capability
 			//Poll i used since there is no way to set up att listemer to att 1043 without geting error
 			this.registerCapability('onoff.childlock', 'hvacThermostat', {
 				get: '1043',
-				reportParser(value) {
-					return value === 1;
-		},
+				reportParser: value => value === 1,
 				report: '1043',
 				getOpts: {
 					getOnLine: true,
 					getOnStart: true,
-					pollInterval: 600000,
+					pollInterval: 6000,
 				},
 			});
 
@@ -105,7 +102,6 @@ class ESHSUPERTR extends ZigBeeDevice {
 
 		// Floor Temperature
 		//Register capability
-		//Poll i used since there is no way to set up att listemer to att 1033 without geting error
 		this.registerCapability('measure_temperature.floor', 'hvacThermostat', {
 			get: '1033',
 			reportParser(value) {
