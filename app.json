@@ -16,11 +16,17 @@
     },
 	  "contributors": {
 		    "developers": [
+      {      "name": "Pål Raymond Johansen",
+                 "email": "prj_84@hotmail.com"
+           },
 			{      "name": "Martin Brasse",
 			       "email": "kasteleman@gmail.com"
            },
       {      "name": "Nils-Martn Skaanes",
              "email": "nilskaa@gmail.com"
+           },
+      {      "name": "Ted Tolboom",
+                  "email": "dtnl.homey@gmail.com"
            }
     ]
 	},
@@ -70,7 +76,13 @@
                     "en": "ESH SUPER TR Thermostat RF"
                 },
                 "class": "thermostat",
-                "capabilities": [ "target_temperature", "measure_temperature.air", "measure_temperature.floor", "onoff.heat", "measure_power", "meter_power", "onoff.childlock" ],
+                "capabilities": [ "target_temperature",
+                  "measure_temperature.air",
+                  "measure_temperature.floor",
+                  "measure_power",
+                  "meter_power",
+                  "onoff.childlock",
+                  "onoff.heat" ],
                 "capabilitiesOptions": {
                     "target_temperature": {
                         "min": 5,
@@ -79,26 +91,24 @@
                               },
 			               "measure_temperature.air": {
           		           "title": {
-             		            "en": "Air Temperature"
+             		            "en": "Air"
           		                  }
 			                           },
 			               "measure_temperature.floor": {
                           "title":{
-			                         "en": "Floor Temperature"
+			                         "en": "Floor"
 			                          }
 			                           },
 			               "onoff.childlock":{
-
 			                    "title": {
 			                         "en":"Child Lock"
                              },
                              "getable": true,
-                             "setable": false
+                             "setable": true
                               },
                       "onoff.heat":{
-
                            "title": {
-                                "en":"Heating state"
+                                "en":"Heating"
                               },
                               "getable": true,
                               "setable": false
@@ -114,7 +124,11 @@
                   },
                   {
                     "id": "sensor",
-                    "capabilities": [ "onoff.heat", "measure_temperature.air", "measure_temperature.floor", "onoff.childlock" ],
+                    "capabilities": [ "onoff.heat",
+                      "measure_temperature.air",
+                      "measure_temperature.floor",
+                      "onoff.childlock"
+                    ],
                     "options": {
                         "icons":{
                           "onoff.heat": "/drivers/ESHSUPERTR/assets/heating.svg",
@@ -149,4 +163,3 @@
 	}
 	]
 }
-
