@@ -6,17 +6,17 @@ Add support for Elko SmartHome to the Athom Homey
   http://proff.elko.no/elko-smart-home-316gled/esh-rs16-316gled-dimmer-rf-ph-article2622-1781.html
   - *Known bugs*:
     - forced_timeouts when multiple commands are sent from Homey app or Web app
+
 - **ESH Super TR RF PH** - Thermostat
   http://proff.elko.no/elko-smart-home-super-termostat/esh-plus-super-tr-rf-ph-article2629-1779.html
-  - Reads floor and air temp
-  - Reads Thermostat set temp
-  - Thermostat set temp is editable
-  - Icons for Heating status og toggle for childlock is present for later update (But do not work)
+  - Read floor and air temp
+  - Read/Write Thermostat set temp
+  - Read Heating status
+  - Read Child lock status
+
 
 ## Plan for support:
   - **ESH Super TR RF PH**
-    - Set child lock status
-    - See if Thermostat is active/inactive
     - See if air or floor temperature is active thermostat source
 
   - **New Elko SmartHome products - Late 2018 / early 2019 release**
